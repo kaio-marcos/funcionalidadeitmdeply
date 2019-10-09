@@ -1,6 +1,6 @@
 import re
 
-class removetags():
+class Removetags():
     def __init__(self, arquivo):
         self.arquivo = arquivo
 
