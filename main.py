@@ -18,13 +18,27 @@ def main():
         x = x.lower()
         if(x == 'break'):
             stop(x)
-        elif(x == 'b'):
+        elif(x == 'a'):
             sleepbye()
             print('.....ok\n')
             print(' ________________________________________')
             print('|----------------------------------------|')
             print('|-------WELCOME TO APP THE ITM-----------|')
             print('|--------------Option: A-----------------|')
+            print('|-----!!Digite o nome do arquivo!!-------|')
+            print('|------------com sua extensão------------|')
+            print('|------Ex: arquivo.txt // arquivo.svg----|')
+            print('|----------------------------------------|')
+            print('|----------!Continuar???[y/n]!-----------|')
+            try:
+                x = str(input("DESEJA CONTINUAR> "))
+        elif(x == 'b'):
+            sleepbye()
+            print('.....ok\n')
+            print(' ________________________________________')
+            print('|----------------------------------------|')
+            print('|-------WELCOME TO APP THE ITM-----------|')
+            print('|--------------Option: B-----------------|')
             print('|-----!!Digite o nome do arquivo!!-------|')
             print('|------------com sua extensão------------|')
             print('|------Ex: arquivo.txt // arquivo.svg----|')
