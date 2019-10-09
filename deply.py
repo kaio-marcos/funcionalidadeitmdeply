@@ -1,9 +1,30 @@
-import re
+import re, os
 
 class Removetags():
     def __init__(self, arquivo):
         self.arquivo = arquivo
-
+    
+    def get_consultarquivo(self):
+        return self.arquivo
+    def get_consultaconteudo(self):
+        try:
+            verificacao = self.arquivo
+            entrada = open(verificacao, 'r', encoding='UTF-8')
+            cont = 0
+            for j in entrada:
+                cont = cont + 1
+            if(cont == 0 or cont <= 1):
+                entrada.close()
+                print("\nO arquivo pode estar corrompido ou vazio")
+                return
+            if(entrada == None):
+                entrada.close()
+                print("O arquivo é inexistente")
+                return
+        except FileNotFoundError:
+            print("\nO arquivo é inexistente")
+            return
+        return self.arquivo
     def removertags(self):
         count = 0
         tags_removidas = open('removidos.txt', 'w')
