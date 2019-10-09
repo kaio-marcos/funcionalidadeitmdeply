@@ -16,12 +16,60 @@ def main():
     try:
         x = str(input("SELECIONE A OPÇÃO: "))
         x = x.lower()
-        print(x + '\n')
+        if(x == 'break'):
+            stop(x)
+        elif(x == 'a'):
+            sleepbye()
+            print('.....ok\n')
+            print(' ________________________________________')
+            print('|----------------------------------------|')
+            print('|-------WELCOME TO APP THE ITM-----------|')
+            print('|--------------Option: A-----------------|')
+            print('|-----!!Digite o nome do arquivo!!-------|')
+            print('|------------com sua extensão------------|')
+            print('|------Ex: arquivo.txt // arquivo.svg----|')
+            print('|----------------------------------------|')
+            print('|----------!Continuar???[y/n]!-----------|')
+            try:
+                x = str(input("SELECIONE A OPÇÃO: "))
+                x = x.lower()
+                if(x == 'n'):
+                    sleepbye()
+                    x = 'break'
+                    stop(x)
+                else:
+                    sleepbye()
+                    arquivo = str(input("Digite o nome do arquivo: "))
+                    remocao = deply.Removetags(arquivo)
+                    sleepbye()
+                    remocao.removertags()
+                    print('Operação realiza com sucesso!')
+
+            except KeyboardInterrupt:
+                print("Operação interrompida")
+            except UnboundLocalError:
+                print("Operação interrompida")
+        if(x == 'd'):
+                print(' ________________________________________')
+                print('|----------------------------------------|')
+                print('|-------WELCOME TO APP THE ITM-----------|')
+                print('|--------------Option: D-----------------|')
+                print('|----------------------------------------|')
+                print('|1° Adicione um arquivo txt ou svg-------|')
+                print('|2° O nome do arquivo deve ser simples---|')
+                print('|3° Seram criados novos arquivos com as f|')
+                print('|unções executadas-----------------------|')
+                print('|4º O arquivo removidos mostra as tags qu|')
+                print('|e foram removidas-----------------------|')
+                print('|----------------------------------------|')
+                print('|--------!Digit: Break para sair!--------|')
+                print('|----------------------------------------|\n')
     except KeyboardInterrupt:
         print("Operação interrompida")
     except UnboundLocalError:
         print("Operação interrompida")
-    
+
+def stop(x): 
     try:
         while(x == 'break'):
             try:
