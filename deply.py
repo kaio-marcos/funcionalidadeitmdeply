@@ -20,6 +20,5 @@ class Removetags():
                 tags_removidas.write(z.group() + '\n')
                 x = re.sub("</tspan>", "", x)
                 planta.write(x)
-            print(count)
             arquivo_svg.close()
             planta.close()
