@@ -1,30 +1,12 @@
-import re, os
+import re
 
 class Removetags():
     def __init__(self, arquivo):
         self.arquivo = arquivo
-    
-    def get_consultarquivo(self):
-        return self.arquivo
-    def get_consultaconteudo(self):
-        try:
-            verificacao = self.arquivo
-            entrada = open(verificacao, 'r', encoding='UTF-8')
-            cont = 0
-            for j in entrada:
-                cont = cont + 1
-            if(cont == 0 or cont <= 1):
-                entrada.close()
-                print("\nO arquivo pode estar corrompido ou vazio")
-                return
-            if(entrada == None):
-                entrada.close()
-                print("O arquivo é inexistente")
-                return
-        except FileNotFoundError:
-            print("\nO arquivo é inexistente")
-            return
-        return self.arquivo
+
+    def set_tag(self, tag):
+        self.tag = tag
+        
     def removertags(self):
         count = 0
         tags_removidas = open('removidos.txt', 'w')
@@ -34,12 +16,17 @@ class Removetags():
                 count = count + 1
                 print(i)
                 x = i
-                z = re.search("<tspan.+?>", x)
+                z = re.search(f"<{self.tag}.+?>", x)
                 tags_removidas.write(z.group() + '\n')
-                x = re.sub("<tspan.+?>", "", x)
-                z = re.search("</tspan>", x)
+                x = re.sub(f"<{self.tag}.+?>", "", x)
+                z = re.search(f"</{self.tag}>", x)
                 tags_removidas.write(z.group() + '\n')
-                x = re.sub("</tspan>", "", x)
+                x = re.sub(f"</{self.tag}>", "", x)
                 planta.write(x)
             arquivo_svg.close()
             planta.close()
+
+
+remocao = Removetags('teste.svg')
+remocao.set_tag('text')
+remocao.removertags()

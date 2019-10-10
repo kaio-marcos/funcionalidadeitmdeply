@@ -30,8 +30,8 @@ def main():
             print('|------Ex: arquivo.txt // arquivo.svg----|')
             print('|----------------------------------------|')
             print('|----------!Continuar???[y/n]!-----------|')
-            try:
-                x = str(input("DESEJA CONTINUAR> "))
+            #try:
+            #    x = str(input("DESEJA CONTINUAR> "))
         elif(x == 'b'):
             sleepbye()
             print('.....ok\n')
