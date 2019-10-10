@@ -10,23 +10,26 @@ class Removetags():
     def removertags(self):
         count = 0
         tags_removidas = open('removidos.txt', 'w')
-        planta = open('planta_nova.svg', 'w', encoding='UTF-8')
-        with open(self.arquivo, 'r', encoding='UTF-8') as arquivo_svg:
+        planta = open(r'planta_nova.svg', 'w', encoding='UTF-8')
+        with open(self.arquivo, 'r', encoding='UTF-8') as arquivo_svg:            
+            arqui = open(arquivo_svg, 'w', encoding='UTF-8')
             for i in arquivo_svg:
                 count = count + 1
-                print(i)
+                #print(i)
                 x = i
-                z = re.search(f"<{self.tag}.+?>", x)
-                tags_removidas.write(z.group() + '\n')
-                x = re.sub(f"<{self.tag}.+?>", "", x)
-                z = re.search(f"</{self.tag}>", x)
-                tags_removidas.write(z.group() + '\n')
-                x = re.sub(f"</{self.tag}>", "", x)
-                planta.write(x)
+                #z = re.search(f"<{self.tag}.+?>", x)
+                #x = re.sub(f"<{self.tag}.+?/>", "", x)
+                #tags_removidas.write(z.group() + '\n')
+                #z = re.search(f"</{self.tag}>", x)
+                #tags_removidas.write(z.group() + '\n')
+
+            z = re.sub("<path.+?/>", "", arqui)
+            #x = re.sub(f"</{self.tag}>", "", x)
+            planta.write(z.group())
             arquivo_svg.close()
             planta.close()
 
 
-remocao = Removetags('teste.svg')
-remocao.set_tag('text')
+remocao = Removetags('MESSEJANA2.txt')
+remocao.set_tag('path')
 remocao.removertags()
